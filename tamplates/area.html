@@ -1,0 +1,48 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WORLD</title>
+    <link rel="stylesheet" href="{%static 'area.css' %}">
+
+</head>
+<body>
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="http://127.0.0.1:8000/city/">City</a></li>
+  <li><a href="http://127.0.0.1:8000/about/">About</a></li>
+</ul>
+<div class="textgl">
+
+  <h2>area</h2>
+
+</div>
+   {% for area in areas %}
+
+<div class="card">
+  <div class="card-img-holder">
+    <img src="{% static 'images/i.webp' %}" alt="Blog image">
+  </div>
+<h3 class="blog-title">{{ area.main_area }}</h3>
+
+
+  <p class="description">
+    {{area.story_area}}
+  </p>
+  <div class="options">
+
+    <button class="btn"><a href="http://127.0.0.1:8000/area_update/{{area.id}}/" >Обновить</a> </button>
+    <button class="btn2"><a href="http://127.0.0.1:8000/area_delete/{{area.id}}/" >Удалить</a> </button>
+  </div>
+
+
+
+
+
+</div>
+  {% endfor %}
+<button class="btn3"><a href="http://127.0.0.1:8000/area_create/" >Создать</a> </button>
+
+</body>
+</html>

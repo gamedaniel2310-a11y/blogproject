@@ -1,0 +1,52 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WORLD</title>
+    <link rel="stylesheet" href="{%static 'style.css' %}">
+
+</head>
+<body>
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="http://127.0.0.1:8000/area/">Area</a></li>
+  <li><a href="http://127.0.0.1:8000/city/">City</a></li>
+  <li><a href="http://127.0.0.1:8000/about/">About</a></li>
+</ul>
+<div class="textgl">
+
+  <h2>Главная страница</h2>
+
+</div>
+   {% for blog in blogs %}
+
+<div class="card">
+  <div class="card-img-holder">
+    <img src="{% static 'images/i.webp' %}" alt="Blog image">
+  </div>
+<h3 class="blog-title">{{ blog.title }}</h3>
+    <h5>дата создание</h5>
+  <span class="blog-time">{{ blog.created_at|date:"d.m.Y"}}</span>
+    <h6>дата обновление</h6>
+  <span class="blog-time">{{ blog.updated_at|date:"d.m.Y"}}</span>
+
+  <p class="description">
+    {{blog.body}}
+  </p>
+  <div class="options">
+
+    <button class="btn"><a href="http://127.0.0.1:8000/update/{{blog.id}}/" >Обновить</a> </button>
+    <button class="btn2"><a href="http://127.0.0.1:8000/delete/{{blog.id}}/" >Удалить</a> </button>
+  </div>
+
+
+
+
+
+</div>
+  {% endfor %}
+<button class="btn3"><a href="http://127.0.0.1:8000/create/" >Создать</a> </button>
+
+</body>
+</html>

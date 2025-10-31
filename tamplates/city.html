@@ -1,0 +1,49 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WORLD</title>
+    <link rel="stylesheet" href="{%static 'city.css' %}">
+
+</head>
+<body>
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="http://127.0.0.1:8000/">main</a></li>
+  <li><a href="http://127.0.0.1:8000/area/">Area</a></li>
+  <li><a href="http://127.0.0.1:8000/about/">About</a></li>
+</ul>
+<div class="textgl">
+
+  <h2>city </h2>
+
+</div>
+   {% for city in cites %}
+
+<div class="card">
+  <div class="card-img-holder">
+    <img src="{% static 'images/i.webp' %}" alt="Blog image">
+  </div>
+<h3 class="blog-title">{{ city.title }}</h3>
+
+
+  <p class="description">
+    {{city.story_city}}
+  </p>
+  <div class="options">
+
+    <button class="btn"><a href="http://127.0.0.1:8000/city_update/{{city.id}}/" >Обновить</a> </button>
+    <button class="btn2"><a href="http://127.0.0.1:8000/city_delete/{{city.id}}/" >Удалить</a> </button>
+  </div>
+
+
+
+
+
+</div>
+  {% endfor %}
+<button class="btn3"><a href="http://127.0.0.1:8000/city_create/" >Создать</a> </button>
+
+</body>
+</html>

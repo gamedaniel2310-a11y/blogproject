@@ -1,0 +1,23 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>админка</title>
+    <link rel="stylesheet" href="{%static 'main.css' %}">
+</head>
+<body>
+    <h2>Создать блог</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- тут уже без таблицы -->
+    <button type="submit">Отправить</button>
+</form>
+
+
+
+
+
+<button class="btn5"><a href="http://127.0.0.1:8000/" >Главная страница</a> </button>
+</body>
+</html>
